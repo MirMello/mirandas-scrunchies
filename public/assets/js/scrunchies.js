@@ -47,6 +47,13 @@ const getScrunchies = (formData = {}) => {
 
 const handleGetScrunchiesSubmit = event => {
   event.preventDefault();
+
+  const nameHTML = $scrunchieForm.querySelector('[name="scrunchie-name"]');
+  const name = nameHTML.value;
+
+  const collectionHTML = $scrunchieForm.querySelector('[name="collection]');
+  const collection = collectionHTML.value;
+
   const fabricTypeRadioHTML = $scrunchieForm.querySelectorAll('[name="fabric-type"]');
   let fabric;
 
@@ -60,7 +67,10 @@ const handleGetScrunchiesSubmit = event => {
     fabric = '';
   }
 
-  const scrunchieObject = { fabric, personalityTraits };
+  const quantityHTML = $scrunchieForm.querySelector('[name="quantity]');
+  const quantity = quantityHTML.value;
+
+  const scrunchieObject = { name, collection, fabric, quantity };
 
   getScrunchies(scrunchieObject);
 };
