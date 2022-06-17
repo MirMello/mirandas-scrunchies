@@ -22,7 +22,7 @@ const handleScrunchieFormSubmit = event => {
 
   const quantity = $scrunchieForm.querySelector('[name="quantity"]').value;
 
-  const scruncheieObject = { name, collection, fabricType, quantity };
+  const scruncheieObject = { name, collection, fabricType, quantity};
 
   fetch('/api/scrunchies', {
     method: 'POST',
