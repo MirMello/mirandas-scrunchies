@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Miranda's Scrunchies</title>
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Rubik:400,400i,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+  <header class="py-3 mb-3">
+    <div class="flex-row justify-space-between align-center container-fluid mx-auto">
+      <h1 class="text-light bg-dark p-3">Miranda's Scrunchies</h1>
+      <h3 class="text-light bg-dark p-3">A Scrunchie Catalog</h3>
+    </div>
+    <div class="container-fluid mx-auto">
+      <section class="p-3 my-4 bg-dark ">
+        <h2 class="text-light">Do What You Love</h2>
+        <p>Hi, my name is Miranda and I love making Scrunchies! Here is my catalog to help me keep organized and keep doing what I love.</p>
+      </section>
+    </div>
+  </header>
+
+  <main class="container-fluid mx-auto">
+
+    <section class="p-3 mb-3 bg-dark flex-row align-center">
+      <h2 class="text-light col-12 col-lg-5">Add To The Catalog.</h2>
+      <div class="col-12 col-lg-7 flex-row text-center justify-space-around align-center">
+        <a class="btn col-12 col-md-auto mx-2" href="/scrunchies">View Scrunchies</a>
+        <a class="btn col-12 col-md-auto mx-2" href="/sales">View Sales</a>
+      </div>
+    </section>
+
+    <section class="my-4 flex-row justify-space-between ">
+      <div class="col-12 col-lg-6 bg-dark p-3 mb-3">
+        <h3 class="text-light">Enter an Scrunchie</h3>
+        <form id="scrunchie-form">
+          <label for="scrunchie-name" class="form-label">Scrunchie Name</label>
+          <input type="text" id="scrunchie-name" name="scrunchie-name" class="form-input" placeholder="Enter Name">
+
+          <label for="collection-input" class="form-label">Collection</label>
+          <input type="text" id="collection-input" name="collection" class="form-input" placeholder="Enter Collection">
+
+          <label for="fabric-input" class="form-label">Fabric Type</label>
+          <div class="flex-row justify-center">
+            <div class="col-auto mb-2">
+              <input type="radio" id="quilt-input" name="fabric-type" value="quilt" checked>
+              <label for="quilt-input">Quilt Fabric</label>
+            </div>
+            <div class="col-auto mb-2">
+              <input type="radio" id="satin-input" name="fabric-type" value="satin">
+              <label for="satin-input">Satin</label>
+            </div>
+            <div class="col-auto mb-2">
+              <input type="radio" id="minky-input" name="fabric-type" value="minky">
+              <label for="minky-input">Minky</label>
+            </div>
+            <div class="col-auto mb-2">
+              <input type="radio" id="cotton-input" name="fabric-type" value="cotton">
+              <label for="cotton-input">Cotton</label>
+            </div>
+            <div class="col-auto mb-2">
+              <input type="text" id="other-fabric-input" name="fabric-type" class="form-input" placeholder="Other Fabric Type">
+            </div>
+          </div>
+
+          <label for="quantity-input" class="form-label">How Many Are Made?</label>
+          <input type="number" id="quantity-input" name="quantity" class="form-input" placeholder="Enter How Many Were Made">
+
+
+          <button class="btn">Add Scrunchie</button>
+        </form>
+      </div>
+
+      <div class="col-12 col-lg-6 bg-dark p-3 mb-3">
+        <h3 class="text-light">Enter a Sale</h3>
+        <form id="sale-form">
+          <label for="scrunchie-sale" class="form-label">Scrunchies Sold</label>
+          <input type="text" id="scrunchie-sale" class="form-input" placeholder="Enter What Scrunchies Were Sold"
+            name="scrunchie-sale">
+
+          <label for="age-input" class="form-label input">How many sold?</label>
+          <input type="number" id="age-input" class="form-input" placeholder="Enter Amount Sold" name="age">
+
+          <label for="money-input" class="form-label input">How Much Did They Sell For?</label>
+          <input type="number" id="money-input" class="form-input" placeholder="Enter Amount Made" name="money-made">
+
+          <label for="date-sold" class="form-label">Date Sold:</label>
+          <input type="date" class="form-input input" id="date-sold" placeholder="Enter Date"
+            name="date-sold">
+
+          <button class="btn">Add Sale</button>
+        </form>
+      </div>
+
+    </section>
+
+
+  </main>
+
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
