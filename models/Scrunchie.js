@@ -38,11 +38,11 @@ Scrunchie.init(
 
 
     // Store a reference of the `id` of the `Reader` that owns this Book
-    reader_id: {
+    collection_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'reader',
-        key: 'id'
+        model: 'Collection',
+        key: 'collection_id'
       }
     }
   },
@@ -51,7 +51,7 @@ Scrunchie.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'book'
+    modelName: 'Scrunchie'
   }
 );
 
