@@ -1,53 +1,35 @@
-/* sales Data
-sales_id
-time sold
-price
-title
-amount sold
-*/
-
-
-const { Model, DataTypes } = require('sales');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Sales extends Model {}
+class Log extends Model {}
 
-Sales.init(
+Log.init(
   {
-    sales_id: {
+    log_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    time_sold: {
-      type: DataTypes.STRING,
+    change: {
+      type: DataTypes.INTEGER,
       allowNull: false
     },
-    amount_sold: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    price: {
+    title: {
       type: DataTypes.STRING,
       references: {
         model: 'scrunchie',
         key: 'scrunchie_id'
       }
-      
-    },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false
     },
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'sales'
+    modelName: 'log'
   }
 );
 
-module.exports = Sales;
+module.exports = Log;

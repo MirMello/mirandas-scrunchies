@@ -30,21 +30,10 @@ Scrunchie.init(
         key: 'collection_id'
       }
     },
-    mats: {
+    cogs: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-
-
-
-    // Store a reference of the `id` of the `Reader` that owns this Book
-    collection_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'Collection',
-        key: 'collection_id'
-      }
-    }
   },
   {
     sequelize,
