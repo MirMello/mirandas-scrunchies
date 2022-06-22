@@ -1,9 +1,3 @@
-/* 
-scrunchie types
-matierials 
-texture
-*/
-
 const { Model, DataTypes } = require('collection');
 const sequelize = require('../config/connection');
 

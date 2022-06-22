@@ -1,8 +1,9 @@
 const Collection = require('./Collection');
 const Scrunchie = require('./Scrunchie');
 const Log = require('./Log');
+const User = require('./User');
 
-// A reader can have many books
+// A Collection can have many Scrunchies
 Collection.hasMany(Scrunchie, {
   foreignKey: 'category',
   onDelete: 'CASCADE'
@@ -12,4 +13,4 @@ Collection.hasMany(Scrunchie, {
 Scrunchie.belongsTo(Collection, {
   foreignKey: 'category'
 });
-module.exports = { Collection, Scrunchie, Log };
+module.exports = { Collection, Scrunchie, Log, User };
