@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -37,3 +38,23 @@ app.use(require('./controllers/'));
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
+=======
+const express = require('express');
+
+const PORT = process.env.PORT || 3001;
+const app = express();
+const apiRoutes = require('./routes/apiRoutes');
+const htmlRoutes = require('./routes/htmlRoutes');
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static('public'));
+
+// Use apiRoutes
+app.use('/api', apiRoutes);
+app.use('/', htmlRoutes);
+
+app.listen(PORT, () => {
+  console.log(`API server now on port ${PORT}!`);
+});
+>>>>>>> aea9f8d523db616e439e12e272796af14ae93a05
