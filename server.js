@@ -9,7 +9,10 @@ const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3500;
+
+// const cors = require('cors');
+// const corsOptions = require('./config/coresOptions');
 
 const sess = {
   secret: 'Super secret secret',
@@ -34,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
+// Deletes all existing tables in the database when set to true
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
