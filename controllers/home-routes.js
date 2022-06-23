@@ -1,6 +1,11 @@
 const router = require('express').Router();
 const { User } = require('../models');
-
+router.get('/', (req, res) => {
+  console.log('======================');
+  res.render('homepage', {
+    loggedIn: req.session.loggedIn
+  });
+});
 // Login route
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect to the homepage
