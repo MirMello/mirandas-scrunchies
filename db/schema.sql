@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS schrunchie_db;
-CREATE DATABASE schrunchie_db;
+DROP DATABASE IF EXISTS scrunchie_db;
+CREATE DATABASE scrunchie_db;
 
-USE schrunchie_db;
+USE scrunchie_db;
 
