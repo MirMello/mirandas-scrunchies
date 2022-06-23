@@ -75,6 +75,6 @@ const collectiondata = [
       }
 ];
 
-const seedCollections = () => Comment.bulkCreate(collectiondata);
+const seedCollections = () => Collection.bulkCreate(collectiondata);
 
 module.exports = seedCollections;

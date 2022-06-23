@@ -16,14 +16,14 @@ Log.init(
       allowNull: false
     },
     title: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       references: {
         model: 'scrunchie',
         key: 'scrunchie_id'
       }
     },
     user: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       references: {
         model: 'user',
         key: 'user_id'
@@ -32,7 +32,7 @@ Log.init(
   },
   {
     sequelize,
-    timestamps: true,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'log'

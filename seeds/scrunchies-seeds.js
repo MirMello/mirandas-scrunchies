@@ -1563,6 +1563,6 @@ const scrunchiedata = [
     }
 ];
 
-const seedScrunchies = () => Post.bulkCreate(scrunchiedata);
+const seedScrunchies = () => Scrunchie.bulkCreate(scrunchiedata);
 
 module.exports = seedScrunchies;
