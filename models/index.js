@@ -5,26 +5,23 @@ const User = require('./User');
 
 // A Collection can have many Scrunchies
 Collection.hasMany(Scrunchie, {
-  foreignKey: 'collection_id',
-  onDelete: 'CASCADE'
+  foreignKey: 'collection_id'
 });
 
 // A Scrunchie belongs to a single Collection
 Scrunchie.belongsTo(Collection, {
-  foreignKey: 'scrunchie_id',
-  onDelete: 'CASCADE'
-});
-
-// A Scrunchie can have many Logs
-Scrunchie.hasMany(Log, {
-  foreignKey: 'scrunchie_id',
+  foreignKey: 'collection_id',
   onDelete: 'CASCADE'
 });
 
 // A User can have many Logs
 User.hasMany(Log, {
+  foreignKey: 'user_id'
+});
+// A Scrunchie belongs to a single Collection
+Log.belongsTo(User, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  onDelete: 'SET NULL'
 });
 
 

@@ -5,7 +5,7 @@ class Log extends Model {}
 
 Log.init(
   {
-    log_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -16,17 +16,14 @@ Log.init(
       allowNull: false
     },
     title: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'scrunchie',
-        key: 'scrunchie_id'
-      }
+      type: DataTypes.STRING,
+      allowNull: false
     },
-    user: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
-        key: 'user_id'
+        key: 'id'
       }
     },
   },

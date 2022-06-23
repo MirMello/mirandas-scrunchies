@@ -5,7 +5,7 @@ class Scrunchie extends Model {}
 
 Scrunchie.init(
   {
-    scrunchie_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -23,11 +23,11 @@ Scrunchie.init(
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    category: {
+    collection_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'collection',
-        key: 'collection_id'
+        key: 'id'
       }
     },
     cogs: {

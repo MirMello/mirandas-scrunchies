@@ -5,7 +5,7 @@ class Collection extends Model {}
 
 Collection.init(
   {
-    collection_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,

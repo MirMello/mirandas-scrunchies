@@ -2,10 +2,9 @@ const { Log } = require('../models');
 
 const logdata = [
     {
-        log_id: 1,
-        change: 1,
-        title: 1,
-        user: 1
+        change: 2,
+        title: 'Brown Fall',
+        user_id: 1
       },
 ];
 
