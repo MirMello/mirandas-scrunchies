@@ -23,8 +23,8 @@ Scrunchie.init(
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    category: {
-      type: DataTypes.STRING,
+    collection_id: {
+      type: DataTypes.INTEGER,
       references: {
         model: 'collection',
         key: 'collection_id'
