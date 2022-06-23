@@ -20,6 +20,7 @@ User.hasMany(Log, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
 });
+
 // A Log belongs to a single User
 // Log.belongsTo(User, {
 //   foreignKey: 'log_id',
