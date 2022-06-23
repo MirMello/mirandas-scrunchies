@@ -11,7 +11,8 @@ Collection.hasMany(Scrunchie, {
 
 // A Scrunchie belongs to a single Collection
 Scrunchie.belongsTo(Collection, {
-  foreignKey: 'scrunchie_id'
+  foreignKey: 'scrunchie_id',
+  onDelete: 'SET NULL'
 });
 
 // A User can have many Logs
@@ -21,7 +22,8 @@ User.hasMany(Log, {
 });
 // A Log belongs to a single User
 Log.belongsTo(User, {
-  foreignKey: 'log_id'
+  foreignKey: 'log_id',
+  onDelete: 'SET NULL'
 });
 
 module.exports = { Collection, Scrunchie, Log, User };
