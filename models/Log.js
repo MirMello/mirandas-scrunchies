@@ -22,6 +22,13 @@ Log.init(
         key: 'scrunchie_id'
       }
     },
+    user: {
+      type: DataTypes.STRING,
+      references: {
+        model: 'user',
+        key: 'user_id'
+      }
+    },
   },
   {
     sequelize,
