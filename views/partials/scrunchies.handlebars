@@ -1,11 +1,27 @@
 <div class="scrunchies">
-  {{#each this}}
   <section class="scrunchie">
-    <div class="meta">
-    </div>
-    <div class="text">
-      {{title}}
-    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">title</th>
+          <th scope="col">inventory</th>
+          <th scope="col">price</th>
+          <th scope="col">cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each this}}
+        <tr>
+          <th scope="row">{{id}}</th>
+          <td>{{title}}</td>
+          <td>{{inventory}}</td>
+          <td>{{price}}</td>
+          <td>{{cogs}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
   </section>
-  {{/each}}
+  
 </div>
