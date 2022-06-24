@@ -1,31 +1,33 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-8 placeholder">col-8</div>
-    <div class="col-4">
-      <div>
-        <h3>Add Collection</h3>
-        <form class="row g-3 needs-validation" novalidate>
-          <div class="col position-relative">
-            <label for="validationTooltip01" class="form-label">Collection name</label>
-            <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
-            <div class="valid-tooltip">
-              Looks good!
+      <div class="col-4">
+        <section>
+          <h2>Create A New Collection</h2>
+
+          <form class="new-collection-form">
+            <div>
+              <label for="collection-title">Title</label>
+              <input type="text" id="collection-title" name="collection-title" />
             </div>
-          </div>
-          <div class="col-12">
-            <button class="btn btn-primary" type="submit">Submit</button>
-          </div>
-        </form>
+            <button type="submit" class="btn btn-primary">Create</button>
+          </form>
+        </section>
+        {{#if collections.length}}
+        <section>
+          <h2>Your collections</h2>
+          <ol>
+            {{#each collections as |collection|}}
+            <li>
+              {{> collection-info collection}}
+              <a href="/dashboard/edit/{{collection.id}}" class="edit-link">Edit collection</a>
+            </li>
+            {{/each}}
+          </ol>
+        </section>
+        {{/if}}
+        col-4
       </div>
-      <div>
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Open this select menu</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-      </div>
-      col-4
     </div>
   </div>
 </div>

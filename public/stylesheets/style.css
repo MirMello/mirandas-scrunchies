@@ -25,7 +25,7 @@ button:hover {
   background-color: #3486eb;
 }
 
-.post-list {
+.collection-list {
   margin: 0;
   padding: 0;
 }
@@ -98,20 +98,20 @@ main {
   color: #3486eb;
 }
 
-.delete-post-btn {
+.delete-collection-btn {
   background-color: #d41414;
 }
 
-.delete-post-btn:hover {
+.delete-collection-btn:hover {
   background-color: #ff643d;
 }
 
-.post {
+.collection {
   margin-bottom: 2%;
   line-height: 150%;
 }
 
-.post .title span {
+.collection .title span {
   font-style: italic;
   font-size: 90%;
   color: #7d7d7d;
@@ -131,30 +131,30 @@ main {
   background-color: #1f9c13;
 }
 
-.comment-form {
+.scrunchie-form {
   margin-bottom: 5%;
 }
 
-.comment {
+.scrunchie {
   padding: 1%;
   margin-bottom: 1%;
 }
 
-.comment:nth-child(odd) {
+.scrunchie:nth-child(odd) {
   background-color: #fff5eb;
 }
 
-.comment .meta {
+.scrunchie .meta {
   font-size: 90%;
   margin-bottom: .5%;
   opacity: .6;
 }
 
-.new-post-form input {
+.new-collection-form input {
   width: 300px;
 }
 
-.edit-post-form {
+.edit-collection-form {
   margin-bottom: 5%;
 }
 

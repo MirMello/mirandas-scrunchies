@@ -1,10 +1,35 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Collection } = require('../models');
 router.get('/', (req, res) => {
   console.log('======================HOME======================');
   res.render('homepage', {
     loggedIn: req.session.loggedIn
   });
+});
+// get single post
+router.get('/post/:id', (req, res) => {
+  Collection.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(CollectionData => {
+      if (!CollectionData) {
+        res.status(404).json({ message: 'No Collection found with this id' });
+        return;
+      }
+
+      const post = CollectionData.get({ plain: true });
+
+      res.render('single-post', {
+        collection,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 // Login route
 router.get('/login', (req, res) => {

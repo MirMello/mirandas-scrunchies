@@ -1,0 +1,19 @@
+{{> post-info post}}
+
+{{#if loggedIn}}
+<form class="scrunchie-form">
+  <div>
+    <textarea name="scrunchie-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">add scrunchie</button>
+  </div>
+</form>
+{{/if}}
+
+{{> scrunchies collection.scrunchies}}
+
+{{#if loggedIn}}
+<script src="/javascript/scrunchie.js"></script>
+{{/if}}
