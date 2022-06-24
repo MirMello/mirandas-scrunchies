@@ -28,7 +28,19 @@ router.get('/', withAuth, (req, res) => {
   });
 });
 router.get('/edit/:id', withAuth, (req, res) => {
-  Collection.findByPk(req.params.id)
+  Collection.findByPk(req.params.id, {
+    attributes: [
+      'id',
+      'title',
+      [sequelize.literal('(SELECT COUNT(*) FROM scrunchie WHERE collection.id = scrunchie.collection_id)'), 'scrunchie_count']
+    ],
+    include: [
+      {
+        model: Scrunchie,
+        attributes: ['id', 'title', 'inventory', 'price', 'cogs'],
+      }
+    ]
+  })
     .then(CollectionData => {
       if (CollectionData) {
         const collection = CollectionData.get({ plain: true });

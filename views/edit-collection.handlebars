@@ -7,25 +7,12 @@
     <div>
       <input name="collection-title" type="text" value="{{collection.title}}" />
     </div>
-    <div>
-      <a href="/collection/{{collection.id}}">{{scrunchies.collection_id.length}} {{format_plural "scrunchie" collection.scrunchies.length}}</a>
-    </div>
-    <button type="submit">Save collection</button>
-    <button type="button" class="delete-collection-btn">Delete collection</button>
+    <button type="submit" class="btn btn-success">Save collection</button>
+    <button type="button" class="btn btn-danger">Delete collection</button>
   </form>
 </article>
 
-<form class="scrunchie-form">
-  <div>
-    <textarea name="scrunchie-body"></textarea>
-  </div>
 
-  <div>
-    <button type="submit">add scrunchie</button>
-  </div>
-</form>
-
-{{> scrunchies collection.scrunchies}}
 
 <script src="/javascript/edit-collection.js"></script>
 <script src="/javascript/delete-collection.js"></script>

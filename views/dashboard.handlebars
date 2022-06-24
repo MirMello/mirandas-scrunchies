@@ -2,31 +2,39 @@
   <div class="row">
     <div class="col-8 placeholder">col-8</div>
       <div class="col-4">
-        <section>
-          <h2>Create A New Collection</h2>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Collections</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Create a new collection</h6>
 
-          <form class="new-collection-form">
-            <div>
-              <label for="collection-title">Title</label>
-              <input type="text" id="collection-title" name="collection-title" />
+            <div class="dropdown pb-4">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                New Collection
+              </button>
+              <form class="dropdown-menu p-4">
+                <div class="mb-3">
+                  <label for="DropdownForCollection" class="form-label">Add Collection</label>
+                  <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="New Collection Name">
+                </div>
+                <button type="submit" class="btn btn-success">Save</button>
+              </form>
             </div>
-            <button type="submit" class="btn btn-primary">Create</button>
-          </form>
-        </section>
-        {{#if collections.length}}
-        <section>
-          <h2>Your collections</h2>
-          <ol>
-            {{#each collections as |collection|}}
-            <li>
-              {{> collection-info collection}}
-              <a href="/dashboard/edit/{{collection.id}}" class="edit-link">Edit collection</a>
-            </li>
-            {{/each}}
-          </ol>
-        </section>
-        {{/if}}
-        col-4
+            <h6 class="card-subtitle mb-2 text-muted">Select an existing collection</h6>
+            <div class="dropdown ">
+              <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                Select Collection
+              </a>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                {{#if collections.length}}
+                {{#each collections as |collection|}}
+                <li><a class="dropdown-item" href="/collection/{{collection.id}}">{{collection.title}}</a></li>
+                {{/each}}
+                {{/if}}
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

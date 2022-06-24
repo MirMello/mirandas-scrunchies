@@ -1,5 +1,5 @@
 {{> collection-info collection}}
-
+<a href="/dashboard/edit/{{collection.id}}" class="edit-link">Edit collection</a>
 {{#if loggedIn}}
 <form class="scrunchie-form">
   <div>
@@ -7,7 +7,7 @@
   </div>
 
   <div>
-    <button type="submit">add scrunchie</button>
+    <button type="submit" class="btn btn-success">add scrunchie</button>
   </div>
 </form>
 {{/if}}
