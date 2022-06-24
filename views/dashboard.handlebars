@@ -1,16 +1,31 @@
-<section>
-  <h2>Create New Collection</h2>
-
-  <form class="new-post-form">
-    <div>
-      <label for="post-title">Title</label>
-      <input type="text" id="post-title" name="post-title" />
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8 placeholder">col-8</div>
+    <div class="col-4">
+      <div>
+        <h3>Add Collection</h3>
+        <form class="row g-3 needs-validation" novalidate>
+          <div class="col position-relative">
+            <label for="validationTooltip01" class="form-label">Collection name</label>
+            <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      col-4
     </div>
-    <div>
-      <label for="post-url">Link</label>
-      <input id="post-url" name="post-url" />
-    </div>
-    <button type="submit" class="btn">Create</button>
-  </form>
-</section>
-
+  </div>
+</div>
