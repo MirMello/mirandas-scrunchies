@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   });
 });
 // get single post
-router.get('/post/:id', (req, res) => {
+router.get('/collection/:id', (req, res) => {
   Collection.findOne({
     where: {
       id: req.params.id
@@ -19,9 +19,9 @@ router.get('/post/:id', (req, res) => {
         return;
       }
 
-      const post = CollectionData.get({ plain: true });
+      const collection = CollectionData.get({ plain: true });
 
-      res.render('single-post', {
+      res.render('single-collection', {
         collection,
         loggedIn: req.session.loggedIn
       });

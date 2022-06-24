@@ -8,7 +8,7 @@
       <input name="collection-title" type="text" value="{{collection.title}}" />
     </div>
     <div>
-      <a href="/collection/{{collection.id}}">{{collection.scrunchies.length}} {{format_plural "scrunchie" collection.scrunchies.length}}</a>
+      <a href="/collection/{{collection.id}}">{{scrunchies.collection_id.length}} {{format_plural "scrunchie" collection.scrunchies.length}}</a>
     </div>
     <button type="submit">Save collection</button>
     <button type="button" class="delete-collection-btn">Delete collection</button>
