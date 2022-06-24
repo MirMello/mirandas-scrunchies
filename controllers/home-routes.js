@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { User, Collection } = require('../models');
+const sequelize = require('../config/connection');
+const { Scrunchie, Collection } = require('../models');
 router.get('/', (req, res) => {
   console.log('======================HOME======================');
   res.render('homepage', {
@@ -11,7 +12,18 @@ router.get('/collection/:id', (req, res) => {
   Collection.findOne({
     where: {
       id: req.params.id
-    }
+    },
+    attributes: [
+      'id',
+      'title',
+      [sequelize.literal('(SELECT COUNT(*) FROM scrunchie WHERE collection.id = scrunchie.collection_id)'), 'scrunchie_count']
+    ],
+    include: [
+      {
+        model: Scrunchie,
+        attributes: ['id', 'title', 'inventory', 'price', 'cogs'],
+      }
+    ]
   })
     .then(CollectionData => {
       if (!CollectionData) {

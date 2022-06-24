@@ -5,7 +5,19 @@ const withAuth = require('../../utils/auth');
 router.get('/', withAuth, (req, res) => {
     console.log(req.session);
     console.log('======================Collections======================');
-    Collection.findAll()
+    Collection.findAll({
+      attributes: [
+        'id',
+        'title',
+        [sequelize.literal('(SELECT COUNT(*) FROM scrunchie WHERE collection.id = scrunchie.collection_id)'), 'scrunchie_count']
+      ],
+      include: [
+        {
+          model: Scrunchie,
+          attributes: ['id', 'title', 'inventory', 'price', 'cogs'],
+        }
+      ]
+    })
     .then(CollectionData => res.json(CollectionData))
     .catch(err => {
       console.log(err);

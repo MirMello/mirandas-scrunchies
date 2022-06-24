@@ -28,7 +28,7 @@ router.post('/', withAuth, (req, res) => {
 });
 
 router.delete('/:id', withAuth, (req, res) => {
-  Comment.destroy({
+  Scrunchie.destroy({
     where: {
       id: req.params.id
     }

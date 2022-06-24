@@ -5,15 +5,27 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, (req, res) => {
   console.log(req.session);
   console.log('======================dashboard======================');
-  Collection.findAll()
-    .then(CollectionData => {
-      const collections = CollectionData.map(collection => collection.get({ plain: true }));
-      res.render('dashboard', { collections, loggedIn: true });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+  Collection.findAll({
+    attributes: [
+      'id',
+      'title',
+      [sequelize.literal('(SELECT COUNT(*) FROM scrunchie WHERE collection.id = scrunchie.collection_id)'), 'scrunchie_count']
+    ],
+    include: [
+      {
+        model: Scrunchie,
+        attributes: ['id', 'title', 'inventory', 'price', 'cogs'],
+      }
+    ]
+  })
+  .then(CollectionData => {
+    const collections = CollectionData.map(collection => collection.get({ plain: true }));
+    res.render('dashboard', { collections, loggedIn: true });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 router.get('/edit/:id', withAuth, (req, res) => {
   Collection.findByPk(req.params.id)
@@ -33,29 +45,5 @@ router.get('/edit/:id', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-// get single post
-router.get('/collection/:id', (req, res) => {
-  Collection.findOne({
-    where: {
-      id: req.params.id
-    }
-  })
-    .then(CollectionData => {
-      if (!CollectionData) {
-        res.status(404).json({ message: 'No Collection found with this id' });
-        return;
-      }
 
-      const collection = CollectionData.get({ plain: true });
-
-      res.render('single-post', {
-        collection,
-        loggedIn: req.session.loggedIn
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
 module.exports = router;

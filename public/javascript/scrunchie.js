@@ -10,8 +10,6 @@ async function commentFormHandler(event) {
     const response = await fetch('/api/scrunchies', {
       method: 'POST',
       body: JSON.stringify({
-        collection_id,
-        scrunchie_inventory,
         scrunchie_title
       }),
       headers: {

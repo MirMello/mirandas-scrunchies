@@ -40,7 +40,7 @@ Scrunchie.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Scrunchie'
+    modelName: 'scrunchie'
   }
 );
 
