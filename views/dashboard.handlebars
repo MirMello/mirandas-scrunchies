@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-8 placeholder">col-8</div>
       <div class="col-4">
-        <div class="card" style="width: 18rem;">
+        <div class="card " style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">Collections</h5>
             <h6 class="card-subtitle mb-2 text-muted">Create a new collection</h6>
@@ -11,10 +11,10 @@
               <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                 New Collection
               </button>
-              <form class="dropdown-menu p-4">
+              <form class="dropdown-menu new-collection-form p-4">
                 <div class="mb-3">
                   <label for="DropdownForCollection" class="form-label">Add Collection</label>
-                  <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="New Collection Name">
+                  <input type="text" class="form-control" id="collection-title" placeholder="New Collection Name">
                 </div>
                 <button type="submit" class="btn btn-success">Save</button>
               </form>
@@ -33,6 +33,34 @@
                 {{/if}}
               </ul>
             </div>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Scrunchies</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Create a new collection</h6>
+
+            <div class="dropdown pb-4">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                New Scrunchie
+              </button>
+              <form class="dropdown-menu p-4">
+                <div class="mb-3">
+                  <label for="DropdownForCollection" class="form-label">Add Scrunchie</label>
+                  <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="New Collection Name">
+                </div>
+                <button type="submit" class="btn btn-success">Save</button>
+              </form>
+            </div>
+            <h6 class="card-subtitle mb-2 text-muted">Select a Scrunchie</h6>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Select a Collection</option>
+              {{#if collections.length}}
+              {{#each collections as |collection|}}
+              <option value="{{collection.id}}">{{collection.title}}</option>
+              {{/each}}
+              {{/if}}
+            </select>
           </div>
         </div>
       </div>
