@@ -1,7 +1,7 @@
 async function newFormHandler(event) {
   event.preventDefault();
 
-  const title = document.querySelector('input[name="collection-title"]').value;
+  const title = document.querySelector('input[id="collection-title"]').value;
 
   const response = await fetch(`/api/collections`, {
     method: 'POST',

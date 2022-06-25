@@ -1,0 +1,7 @@
+<input type="text" id="scrunchie-menu" placeholder="get value on option select">
+<select class="form-select pt-6" aria-label="Default select example" >
+    <option selected>Select a Scrunchie</option>
+    {{#each this}}
+    <option value="{{id}}">{{title}}</option>
+    {{/each}}
+</select>

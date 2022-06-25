@@ -57,5 +57,41 @@ router.get('/edit/:id', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+// get single post
+router.get('/collection/:id', (req, res) => {
+  Collection.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: [
+      'id',
+      'title',
+      [sequelize.literal('(SELECT COUNT(*) FROM scrunchie WHERE collection.id = scrunchie.collection_id)'), 'scrunchie_count']
+    ],
+    include: [
+      {
+        model: Scrunchie,
+        attributes: ['id', 'title', 'inventory', 'price', 'cogs'],
+      }
+    ]
+  })
+    .then(CollectionData => {
+      if (!CollectionData) {
+        res.status(404).json({ message: 'No Collection found with this id' });
+        return;
+      }
+
+      const collection = CollectionData.get({ plain: true });
+
+      res.render('single-collection', {
+        collection,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 module.exports = router;
