@@ -5,9 +5,9 @@
         <canvas id="myChart"></canvas>
         <script>
           const labels = [
-            {{#if collection.scrunchie.length}}
-              {{#each collection as |collection|}}
-                '{{collection.scrunchie.title}}',
+            {{#if invArray.length}}
+              {{#each invArray as |collection|}}
+                '{{title}}',
               {{/each}}
               {{/if}}
             
@@ -20,9 +20,9 @@
               backgroundColor: 'rgb(255, 99, 132)',
               borderColor: 'rgb(255, 99, 132)',
               data: [
-              {{#if scrunchies.length}}
-              {{#each scrunchies as |scrunchie|}}
-                  '{{scrunchie.title}}',
+              {{#if invArray.length}}
+              {{#each invArray as |collection|}}
+                  '{{inventory}}',
                 {{/each}}
                 {{/if}}
               ],
@@ -30,7 +30,7 @@
           };
 
           const config = {
-            type: 'line',
+            type: 'bar',
             data: data,
             options: {}
           };
@@ -63,8 +63,8 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              {{#if collection.length}}
-              {{#each collection as |collection|}}
+              {{#if invArray.length}}
+              {{#each invArray as |collection|}}
               <li><a class="dropdown-item" href="/collection/{{collection.id}}">{{collection.title}}</a></li>
               {{/each}}
               {{/if}}

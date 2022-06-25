@@ -20,8 +20,21 @@ router.get('/', withAuth, (req, res) => {
   })
   .then(CollectionData => {
     
+    const invArray = []
     const collection = CollectionData.map(collection => collection.get({ plain: true }));
-    res.render('dashboard', { collection, loggedIn: true });
+    for (let index = 0; index < collection.length; index++) {
+      let inventory = 0
+      const collectionObj = collection[index];
+        for (let index = 0; index < collectionObj.scrunchies.length; index++) {
+          const scrunchie = collectionObj.scrunchies[index];
+          inventory += scrunchie.inventory
+        }
+        invArray.push({
+          ...collectionObj,
+          inventory
+        })
+    }
+    res.render('dashboard', { invArray, loggedIn: true });
     
   })
   .catch(err => {
