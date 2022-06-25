@@ -1,9 +1,41 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-8 placeholder">
-      col-8
+    <div class="col-8">
       <div>
         <canvas id="myChart"></canvas>
+        <script>
+          const labels = [
+            {{#if collection.length}}
+              {{#each collection as |collection|}}
+                '{{collection.scrunchie.title}}',
+              {{/each}}
+              {{/if}}
+            
+          ];
+
+          const data = {
+            labels: labels,
+            datasets: [{
+              label: 'My First dataset',
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(255, 99, 132)',
+              data: [
+              {{#if scrunchies.length}}
+              {{#each scrunchies as |scrunchie|}}
+                  '{{scrunchie.title}}',
+                {{/each}}
+                {{/if}}
+              ],
+            }]
+          };
+
+          const config = {
+            type: 'line',
+            data: data,
+            options: {}
+          };
+        </script>
+
       </div>
     </div>
     <div class="col-4">
@@ -31,8 +63,8 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              {{#if collections.length}}
-              {{#each collections as |collection|}}
+              {{#if collection.length}}
+              {{#each collection as |collection|}}
               <li><a class="dropdown-item" href="/collection/{{collection.id}}">{{collection.title}}</a></li>
               {{/each}}
               {{/if}}
@@ -41,44 +73,10 @@
           </div>
         </div>
       </div>
-      {{!-- <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Scrunchies</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Create a new collection</h6>
-
-          <div class="dropdown pb-4">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-              New Scrunchie
-            </button>
-            <form class="dropdown-menu p-4">
-              <div class="mb-3">
-                <label for="DropdownForCollection" class="form-label">Add Scrunchie</label>
-                <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="New Collection Name">
-              </div>
-              <button type="submit" class="btn btn-success">Save</button>
-            </form>
-          </div>
-          <h6 class="card-subtitle mb-2 text-muted">Select a Scrunchie</h6>
-          <select class="form-select" aria-label="Default select example" id="collectionFilter" onchange="run()">
-            <option selected>Select a Collection</option>
-            {{#if collections.length}}
-            {{#each collections as |collection|}}
-            <option value="{{collection.id}}">{{collection.title}}</option>
-            
-            {{/each}}
-            
-          </select>
-          
-          {{/if}}
-          <div id="scrunchieAppend">
-
-          </div>
-          
-        </div>
-      </div> --}}
     </div>
     </div>
   </div>
 </div>
 <script src="/javascript/dashboard.js"></script>
 <script src="/javascript/add-collection.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

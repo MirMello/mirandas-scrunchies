@@ -19,8 +19,10 @@ router.get('/', withAuth, (req, res) => {
     ]
   })
   .then(CollectionData => {
-    const collections = CollectionData.map(collection => collection.get({ plain: true }));
-    res.render('dashboard', { collections, loggedIn: true });
+    
+    const collection = CollectionData.map(collection => collection.get({ plain: true }));
+    res.render('dashboard', { collection, loggedIn: true });
+    
   })
   .catch(err => {
     console.log(err);
