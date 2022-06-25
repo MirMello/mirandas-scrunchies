@@ -2,7 +2,7 @@
 
 https://mirandas-scrunchies-240622.herokuapp.com/
 
-![Main Page Screenshot](images/mirandas-scrunchies-dashboard)
+![mirandas-scrunchies-dashboard](https://user-images.githubusercontent.com/96323393/175787651-a9f85077-d7e4-4f6c-af8a-e8d0f66298f2.jpg)
 
 
 ## Purpose
