@@ -39,5 +39,5 @@ app.use(routes);
 
 // Deletes all existing tables in the database when set to true
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log(`Now listening at ${PORT}`));
 });
