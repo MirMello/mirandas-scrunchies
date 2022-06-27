@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     loggedIn: req.session.loggedIn
   });
 });
-// get single post
+// get single oollection
 router.get('/collection/:id', (req, res) => {
   Collection.findOne({
     where: {
@@ -35,6 +35,39 @@ router.get('/collection/:id', (req, res) => {
 
       res.render('single-collection', {
         collection,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// get single scrunchie
+router.get('/scrunchie/:id', (req, res) => {
+  Scrunchie.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: ['id', 'title', 'inventory', 'price', 'collection_id', 'cogs'],
+    include: [
+      {
+        model: Collection,
+        attributes: ['id', 'title'],
+      }
+    ]
+  })
+    .then(ScrunchieData => {
+      if (!ScrunchieData) {
+        res.status(404).json({ message: 'No Scrunchie found with this id' });
+        return;
+      }
+
+      const scrunchie = ScrunchieData.get({ plain: true });
+
+      res.render('single-scrunchie', {
+        scrunchie,
         loggedIn: req.session.loggedIn
       });
     })
