@@ -1,4 +1,4 @@
-async function commentFormHandler(event) {
+async function scrunchieFormHandler(event) {
   event.preventDefault();
 
   const scrunchie_text = document.querySelector('textarea[name="scrunchie-body"]').value.trim();
@@ -25,4 +25,4 @@ async function commentFormHandler(event) {
   }
 }
 
-document.querySelector('.scrunchie-form').addEventListener('submit', commentFormHandler);
+document.querySelector('.scrunchie-form').addEventListener('submit', scrunchieFormHandler);

@@ -5,12 +5,27 @@ const withAuth = require('../../utils/auth');
 module.exports = router;
 router.get('/', withAuth, (req, res) => {
     console.log('======================scrunchie======================');
-    Scrunchie.findAll()
-    .then(scrunchieData => res.json(scrunchieData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+    Scrunchie.findAll({
+      raw: true
+    })
+
+    .then(ScrunchieData => {
+      const scrunchieTitles = []
+      for(let i=0; i<ScrunchieData.length; i++) {
+        if(scrunchieTitles.indexOf(ScrunchieData[i].title) === -1) {
+          scrunchieTitles.push({
+            title: ScrunchieData[i].title,
+            id: ScrunchieData[i].id
+          })
+        }
+      }
+      console.log(ScrunchieData)
+      console.log(scrunchieTitles)
+      res.render('inventoriesScrunchies', {
+        scrunchieTitles,
+        loggedIn: req.session.loggedIn
+      })
+    })
 });
 router.post('/', withAuth, (req, res) => {
   // expects => {comment_text: "This is the comment", user_id: 1, post_id: 2}

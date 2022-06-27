@@ -1,41 +1,82 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-8 placeholder">col-8</div>
-      <div class="col-4">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Collections</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Create a new collection</h6>
+    <div class="col-8">
+      <div>
+        <canvas id="myChart"></canvas>
+        <script>
+          const labels = [
+            {{#if invArray.length}}
+              {{#each invArray as |collection|}}
+                '{{title}}',
+              {{/each}}
+              {{/if}}
+            
+          ];
 
-            <div class="dropdown pb-4">
-              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                New Collection
-              </button>
-              <form class="dropdown-menu p-4">
-                <div class="mb-3">
-                  <label for="DropdownForCollection" class="form-label">Add Collection</label>
-                  <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="New Collection Name">
-                </div>
-                <button type="submit" class="btn btn-success">Save</button>
-              </form>
-            </div>
-            <h6 class="card-subtitle mb-2 text-muted">Select an existing collection</h6>
-            <div class="dropdown ">
-              <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                Select Collection
-              </a>
-
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                {{#if collections.length}}
-                {{#each collections as |collection|}}
-                <li><a class="dropdown-item" href="/collection/{{collection.id}}">{{collection.title}}</a></li>
+          const data = {
+            labels: labels,
+            datasets: [{
+              label: 'made Scrunchies in each collection',
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(255, 99, 132)',
+              data: [
+              {{#if invArray.length}}
+              {{#each invArray as |collection|}}
+                  '{{inventory}}',
                 {{/each}}
                 {{/if}}
-              </ul>
-            </div>
+              ],
+            }]
+          };
+
+          const config = {
+            type: 'bar',
+            data: data,
+            options: {}
+          };
+        </script>
+
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card " style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Collections</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Create a new collection</h6>
+
+          <div class="dropdown pb-4">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+              New Collection
+            </button>
+            <form class="dropdown-menu new-collection-form p-4">
+              <div class="mb-3">
+                <label for="DropdownForCollection" class="form-label">Add Collection</label>
+                <input type="text" class="form-control" id="collection-title" placeholder="New Collection Name">
+              </div>
+              <button type="submit" class="btn btn-success">Save</button>
+            </form>
+          </div>
+          <h6 class="card-subtitle mb-2 text-muted">Select an existing collection</h6>
+          <div class="dropdown ">
+            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              Select Collection
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              {{#if invArray.length}}
+              {{#each invArray as |collection|}}
+              <li><a class="dropdown-item" href="/collection/{{collection.id}}">{{collection.title}}</a></li>
+              {{/each}}
+              {{/if}}
+            </ul>
+            
           </div>
         </div>
       </div>
     </div>
+    </div>
   </div>
 </div>
+<script src="/javascript/dashboard.js"></script>
+<script src="/javascript/add-collection.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
