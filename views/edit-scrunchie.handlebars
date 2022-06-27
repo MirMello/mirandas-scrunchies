@@ -3,13 +3,27 @@
   <h2>
     Edit Scrunchie
   </h2>
-  <form class="edit-collection-form">
-    <div>
-
-      <input name="collection-title" type="text" value="{{scrunchie.title}}" />
+  <form class="edit-scrunchie-form row">
+    <div class="col">
+      <label class="form-label">Scrunchie Name</label>
+      <input  type="text" class="form-control" id="scrunchie-title" value="{{scrunchie.title}}" />
     </div>
+    <div class="col">
+      <label for="DropdownForCollection" class="form-label">Scrunchie Inventory</label>
+      <input type="number" class="form-control" id="scrunchie-inventory" value="{{scrunchie.inventory}}">
+    </div>
+    <div class="col">
+      <label for="DropdownForCollection" class="form-label">Scrunchie Price</label>
+      <input type="number" class="form-control" id="scrunchie-price" value="{{scrunchie.price}}">
+    </div>
+    <div class="col">
+      <label for="DropdownForCollection" class="form-label">Scrunchie Cost</label>
+      <input type="number" class="form-control" id="scrunchie-cost" value="{{scrunchie.cogs}}">
+    </div>
+    <div class="col-12">
     <button type="submit" class="btn btn-success">Save Scrunchie</button>
     <button type="button" class="btn btn-danger">Delete Scrunchie</button>
+    </div>
   </form>
 </article>
 
