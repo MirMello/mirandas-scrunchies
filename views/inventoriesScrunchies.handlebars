@@ -4,14 +4,18 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">title</th>
+          <th scope="col">Title</th>
+          <th scope="col">Inventory</th>
+          <th scope="col">Cogs</th>
         </tr>
       </thead>
       <tbody>
         {{#each scrunchieTitles}}
         <tr>
           <th scope="row">{{id}}</th>
-          <td><a href="/collection/{{id}}">{{title}}</a></td>
+          <td><a href="/scrunchie/{{id}}">{{title}}</a></td>
+          <td>{{inventory}}</td>
+          <td>{{cogs}}</td>
         </tr>
         {{/each}}
       </tbody>
