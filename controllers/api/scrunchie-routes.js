@@ -15,7 +15,9 @@ router.get('/', withAuth, (req, res) => {
         if(scrunchieTitles.indexOf(ScrunchieData[i].title) === -1) {
           scrunchieTitles.push({
             title: ScrunchieData[i].title,
-            id: ScrunchieData[i].id
+            id: ScrunchieData[i].id,
+            inventory: ScrunchieData[i].inventory,
+            cogs: ScrunchieData[i].cogs
           })
         }
       }

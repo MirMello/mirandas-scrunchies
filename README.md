@@ -25,6 +25,5 @@ An app that helps organize Miranda's Scrunchie catalog
 
 ## Contribution
 Jon Bird,
-Miranda Mello,
-Cody Eddie, and
-Jace Edwards
+Miranda Mello, and
+Cody Eddie
