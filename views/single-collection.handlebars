@@ -1,13 +1,9 @@
 {{> collection-info collection}}
-<a href="/dashboard/edit/{{collection.id}}" class="edit-link">Edit collection</a>
+<a href="/dashboard/edit/{{collection.id}}" class="edit-link">Edit Collection</a>
 {{#if loggedIn}}
 <form class="scrunchie-form">
   <div>
-    <textarea name="scrunchie-body"></textarea>
-  </div>
-
-  <div>
-    <a href="./add-scrunchie.handlebars"><button type="submit" class="btn btn-success">Add scrunchie</button></a>
+  <a href="/dashboard/add/{{scrunchie.id}}"><button type="submit" class="btn btn-success">Add Scrunchie</button></a>
   </div>
 </form>
 {{/if}}

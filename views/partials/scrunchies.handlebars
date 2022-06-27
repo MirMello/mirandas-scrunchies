@@ -18,7 +18,7 @@
           <td>{{inventory}}</td>
           <td>{{price}}</td>
           <td>{{cogs}}</td>
-          <td><button type="button" class="btn btn-secondary">Edit</button></td>
+          <td><a href="/dashboard/edit/{{scrunchie.id}}" class="edit-link"><button type="button" class="btn btn-secondary">Edit</button></a></td>
           <td><button type="button" class="btn btn-danger">Delete</button></td>
         </tr>
         {{/each}}
