@@ -1,0 +1,4 @@
+mysql://vz14lb447hhf4367:b9pf70r1e9xop6dt@qao3ibsa7hhgecbv.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/ldxfrbhvspp2dpd0
+
+$2b$10$aw/4z1LOwWMmE/MXHRzESukwoCUlfX3HtZV6pt6N55184yWcM.L3W
+
