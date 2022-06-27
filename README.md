@@ -2,8 +2,7 @@
 
 https://mirandas-scrunchies-240622.herokuapp.com/
 
-![mirandas-scrunchies-dashboard](https://user-images.githubusercontent.com/96323393/175787651-a9f85077-d7e4-4f6c-af8a-e8d0f66298f2.jpg)
-
+![mirandas-scrunchies-dashboard](https://user-images.githubusercontent.com/96323393/176058946-ffa3592f-5b88-40d2-a181-7cebcc2e5353.jpg)
 
 ## Purpose
 An app that helps organize Miranda's Scrunchie catalog
