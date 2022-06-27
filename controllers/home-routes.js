@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     loggedIn: req.session.loggedIn
   });
 });
-// get single post
+// get single oollection
 router.get('/collection/:id', (req, res) => {
   Collection.findOne({
     where: {
@@ -44,23 +44,17 @@ router.get('/collection/:id', (req, res) => {
     });
 });
 
+// get single scrunchie
 router.get('/scrunchie/:id', (req, res) => {
   Scrunchie.findOne({
     where: {
       id: req.params.id
     },
-    attributes: [
-      'id',
-      'title',
-      'inventory',
-      'cogs',
-      'collection_id'
-      [sequelize.literal('(SELECT COUNT(*) FROM scrunchie WHERE collection.id = scrunchie.collection_id)'), 'scrunchie_count']
-    ],
+    attributes: ['id', 'title', 'inventory', 'price', 'collection_id', 'cogs'],
     include: [
       {
-        model: Scrunchie,
-        attributes: ['id', 'title', 'inventory', 'price', 'cogs'],
+        model: Collection,
+        attributes: ['id', 'title'],
       }
     ]
   })
