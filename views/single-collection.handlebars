@@ -1,15 +1,25 @@
 {{> collection-info collection}}
 <a href="/dashboard/edit/{{collection.id}}" class="edit-link">Edit Collection</a>
 {{#if loggedIn}}
-<form class="scrunchie-form">
-  <div>
-  <a href="/dashboard/add/{{scrunchie.id}}"><button type="submit" class="btn btn-success">Add Scrunchie</button></a>
-  </div>
-</form>
+
+<div class="dropdown pb-4">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+    data-bs-auto-close="outside">
+    New Scrunchie
+  </button>
+  <form class="dropdown-menu new-scrunchie-form p-4">
+    <div class="mb-3">
+      <label for="DropdownForScrunchie" class="form-label">Add Scrunchie</label>
+      <input type="text" class="form-control" id="scrunchie-title" placeholder="New Scrunchie Name">
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+</div>
 {{/if}}
 
 {{> scrunchies collection.scrunchies}}
 
 {{#if loggedIn}}
+<script src="/javascript/add-scrunchie.js"></script>
 <script src="/javascript/scrunchie.js"></script>
 {{/if}}
