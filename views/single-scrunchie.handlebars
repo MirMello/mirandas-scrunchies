@@ -1,17 +1,9 @@
+{{#if loggedIn}}
 {{> scrunchie-info scrunchie}}
 <a href="/dashboard/edit/scrunchie/{{scrunchie.collection_id}}" class="edit-link">Edit scrunchie</a>
-{{#if loggedIn}}
-<form class="scrunchie-form">
-  
 
-  <div>
-    <button type="submit" class="btn btn-success">add scrunchie</button>
-  </div>
-</form>
-{{/if}}
 
-{{> scrunchies collection.scrunchies}}
 
-{{#if loggedIn}}
+
 <script src="/javascript/scrunchie.js"></script>
 {{/if}}

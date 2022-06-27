@@ -83,12 +83,12 @@ router.get('/edit/scrunchie/:id', withAuth, (req, res) => {
         }
       ]
     })
-    .then(CollectionData => {
-      if (CollectionData) {
-        const collection = CollectionData.get({ plain: true });
+    .then(ScrunchieData => {
+      if (ScrunchieData) {
+        const scrunchie = ScrunchieData.get({ plain: true });
         
         res.render('edit-scrunchie', {
-          collection,
+          scrunchie,
           loggedIn: true
         });
       } else {
