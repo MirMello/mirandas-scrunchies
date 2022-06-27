@@ -66,7 +66,7 @@ router.post('/', withAuth, (req, res) => {
 });
 
 router.put('/:id', withAuth, (req, res) => {
-  Post.update(
+  Collection.update(
     {
       title: req.body.title
     },
@@ -90,7 +90,7 @@ router.put('/:id', withAuth, (req, res) => {
 });
 router.delete('/:id', withAuth, (req, res) => {
   console.log('id', req.params.id);
-  Post.destroy({
+  Collection.destroy({
     where: {
       id: req.params.id
     }
