@@ -50,6 +50,7 @@ router.put('/:id', withAuth, (req, res) => {
       title: req.body.title,
       inventory: req.body.inventory,
       collection_id: req.body.collection_id,
+      price: req.body.price,
       cogs: req.body.cogs
     },
     {
