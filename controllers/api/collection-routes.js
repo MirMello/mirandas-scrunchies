@@ -11,14 +11,25 @@ router.get('/', withAuth, (req, res) => {
         'title',
         [sequelize.literal('(SELECT COUNT(*) FROM scrunchie WHERE collection.id = scrunchie.collection_id)'), 'scrunchie_count']
       ],
-      include: [
-        {
-          model: Scrunchie,
-          attributes: ['id', 'title', 'inventory', 'price', 'cogs'],
-        }
-      ]
+      raw: true
     })
-    .then(CollectionData => res.json(CollectionData))
+    .then(CollectionData => {
+      const collectionTitles = []
+      for(let i=0; i<CollectionData.length; i++) {
+        if(collectionTitles.indexOf(CollectionData[i].title) === -1) {
+          collectionTitles.push({
+            title: CollectionData[i].title,
+            id: CollectionData[i].id
+          })
+        }
+      }
+      console.log(CollectionData)
+      console.log(collectionTitles)
+      res.render('inventoriesCollections', {
+        collectionTitles,
+        loggedIn: req.session.loggedIn
+      })
+    })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);

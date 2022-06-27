@@ -1,3 +1,4 @@
+{{#if loggedIn}}
 <div class="scrunchies">
   <section class="scrunchie">
     <table class="table">
@@ -5,22 +6,17 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">title</th>
-          <th scope="col">inventory</th>
-          <th scope="col">price</th>
-          <th scope="col">cost</th>
         </tr>
       </thead>
       <tbody>
-        {{#each this}}
+        {{#each collectionTitles}}
         <tr>
           <th scope="row">{{id}}</th>
-          <td><a href="/scrunchie/{{id}}">{{title}}</a></td>
-          <td>{{inventory}}</td>
-          <td>${{price}}</td>
-          <td>${{cogs}}</td>
+          <td><a href="/collection/{{id}}">{{title}}</a></td>
         </tr>
         {{/each}}
       </tbody>
     </table>
   </section>
 </div>
+{{/if}}

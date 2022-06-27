@@ -1,3 +1,4 @@
+{{#if loggedIn}}
 <div class="container-fluid">
   <div class="row">
     <div class="col-8">
@@ -16,7 +17,7 @@
           const data = {
             labels: labels,
             datasets: [{
-              label: 'My First dataset',
+              label: 'made Scrunchies in each collection',
               backgroundColor: 'rgb(255, 99, 132)',
               borderColor: 'rgb(255, 99, 132)',
               data: [
@@ -80,3 +81,4 @@
 <script src="/javascript/dashboard.js"></script>
 <script src="/javascript/add-collection.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{{/if}}
