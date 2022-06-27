@@ -44,6 +44,33 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
+router.put('/:id', withAuth, (req, res) => {
+  Scrunchie.update(
+    {
+      title: req.body.title,
+      inventory: req.body.inventory,
+      price: req.body.price,
+      cost: req.body.cogs
+    },
+    {
+      where: {
+        id: req.params.id
+      }
+    }
+  )
+    .then(scrunchieData => {
+      if (!scrunchieData) {
+        res.status(404).json({ message: 'No Scrunchie found with this id' });
+        return;
+      }
+      res.json(scrunchieData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 router.delete('/:id', withAuth, (req, res) => {
   Scrunchie.destroy({
     where: {

@@ -1,26 +1,4 @@
 {{#if loggedIn}}
-<<<<<<< HEAD
-
-<div class="dropdown pb-4">
-  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
-    data-bs-auto-close="outside">
-    New Scrunchie
-  </button>
-  <form class="dropdown-menu new-scrunchie-form p-4">
-    <div class="mb-3">
-      <label for="DropdownForScrunchie" class="form-label">Add Scrunchie</label>
-      <input type="text" class="form-control" id="scrunchie-title" placeholder="New Scrunchie Name">
-    </div>
-    <button type="submit" class="btn btn-success">Save</button>
-  </form>
-</div>
-{{/if}}
-
-{{> scrunchies collection.scrunchies}}
-
-{{#if loggedIn}}
-<script src="/javascript/add-scrunchie.js"></script>
-=======
 <a href="/dashboard"> &larr; Back to dashboard</a>
 <div class="mt-4">
   {{> collection-info collection}}
@@ -28,32 +6,37 @@
 
 <a href="/dashboard/edit/{{collection.id}}" class="edit-link">Edit collection</a>
 
-<form class="scrunchie-form row">
-  <div class="col">
-    <label for="DropdownForCollection" class="form-label">Scrunchie Name</label>
-    <input type="text" class="form-control" id="scrunchie-title" placeholder="Scrunchie Name">
-  </div>
-  <div class="col">
-    <label for="DropdownForCollection" class="form-label">Scrunchie Inventory</label>
-    <input type="number" class="form-control" id="scrunchie-inventory" placeholder="ex:2">
-  </div>
-  <div class="col">
-    <label for="DropdownForCollection" class="form-label">Scrunchie Price</label>
-    <input type="number" class="form-control" id="scrunchie-price" placeholder="ex:5">
-  </div>
-  <div class="col">
-    <label for="DropdownForCollection" class="form-label">Scrunchie Cost</label>
-    <input type="number" class="form-control" id="scrunchie-cost" placeholder="ex:1">
-  </div>
-
-  <div>
-    <button type="submit" class="btn btn-success">add new scrunchie</button>
-  </div>
-</form>
+<div class="dropdown pb-4">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+    data-bs-auto-close="outside">
+    Add Scrunchie
+  </button>
+  <form class="dropdown-menu new-scrunchie-form p-4">
+    <div class="row">
+      <div class="mb-3">
+        <label for="DropdownForScrunchie" class="form-label">Scrunchie Name</label>
+        <input type="text" class="form-control" id="scrunchie-title" placeholder="Scrunchie Name">
+      </div>
+      <div class="col">
+        <label for="DropdownForScrunchie" class="form-label">Scrunchie Inventory</label>
+        <input type="number" class="form-control" id="scrunchie-inventory" placeholder="ex:2">
+      </div>
+      <div class="col">
+        <label for="DropdownForScrunchie" class="form-label">Scrunchie Price</label>
+        <input type="number" class="form-control" id="scrunchie-price" placeholder="ex:5">
+      </div>
+      <div class="col">
+        <label for="DropdownForScrunchie" class="form-label">Scrunchie Cost</label>
+        <input type="number" class="form-control" id="scrunchie-cost" placeholder="ex:1">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+</div>
 
 
 {{> scrunchies collection.scrunchies}}
 
->>>>>>> feature/routes
+<script src="/javascript/add-scruchie.js"></script>
 <script src="/javascript/scrunchie.js"></script>
 {{/if}}

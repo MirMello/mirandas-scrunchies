@@ -5,10 +5,19 @@ async function addFormHandler(event) {
     const id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
     ];
-    const response = await fetch(`/api/scrunchies/${id}`, {
+    const inventory = document.querySelector('input [name="scrunchie-inventory"]').value.trim();
+    const price = document.querySelector('input [name="scrunchie-price"]').value.trim();
+    const cost = document.querySelector('input [name="scrunchie-cost"]').value.trim();
+
+    const response = await fetch(`/api/scrunchies`, {
       method: 'PUT',
       body: JSON.stringify({
-        title
+        id,
+        title,
+        inventory,
+        price,
+        cost
+
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -16,7 +25,7 @@ async function addFormHandler(event) {
     });
   
     if (response.ok) {
-      document.location.replace('/dashboard/');
+      document.location.replace('/collection/:id');
     } else {
       alert(response.statusText);
     }
