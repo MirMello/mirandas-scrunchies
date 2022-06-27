@@ -1,9 +1,11 @@
 {{#if loggedIn}}
 <article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
+  <a href="/collection/{{collection.id}}"> &larr; Back to Collection</a>
+<div class="mt-4">
   <h2>
     Edit Collection
   </h2>
+  </div>
   <form class="edit-collection-form">
     <div>
       <input name="collection-title" type="text" value="{{collection.title}}" />
