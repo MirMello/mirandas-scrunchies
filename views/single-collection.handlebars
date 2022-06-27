@@ -1,6 +1,5 @@
-{{> collection-info collection}}
-<a href="/dashboard/edit/{{collection.id}}" class="edit-link">Edit Collection</a>
 {{#if loggedIn}}
+<<<<<<< HEAD
 
 <div class="dropdown pb-4">
   <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
@@ -21,5 +20,40 @@
 
 {{#if loggedIn}}
 <script src="/javascript/add-scrunchie.js"></script>
+=======
+<a href="/dashboard"> &larr; Back to dashboard</a>
+<div class="mt-4">
+  {{> collection-info collection}}
+</div>
+
+<a href="/dashboard/edit/{{collection.id}}" class="edit-link">Edit collection</a>
+
+<form class="scrunchie-form row">
+  <div class="col">
+    <label for="DropdownForCollection" class="form-label">Scrunchie Name</label>
+    <input type="text" class="form-control" id="scrunchie-title" placeholder="Scrunchie Name">
+  </div>
+  <div class="col">
+    <label for="DropdownForCollection" class="form-label">Scrunchie Inventory</label>
+    <input type="number" class="form-control" id="scrunchie-inventory" placeholder="ex:2">
+  </div>
+  <div class="col">
+    <label for="DropdownForCollection" class="form-label">Scrunchie Price</label>
+    <input type="number" class="form-control" id="scrunchie-price" placeholder="ex:5">
+  </div>
+  <div class="col">
+    <label for="DropdownForCollection" class="form-label">Scrunchie Cost</label>
+    <input type="number" class="form-control" id="scrunchie-cost" placeholder="ex:1">
+  </div>
+
+  <div>
+    <button type="submit" class="btn btn-success">add new scrunchie</button>
+  </div>
+</form>
+
+
+{{> scrunchies collection.scrunchies}}
+
+>>>>>>> feature/routes
 <script src="/javascript/scrunchie.js"></script>
 {{/if}}

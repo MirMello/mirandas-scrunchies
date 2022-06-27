@@ -1,20 +1,33 @@
-{{> scrunchie-info scrunchieTitles}}
 {{#if loggedIn}}
-<article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
-    Edit Scrunchie
-  </h2>
-  <form class="edit-scrunchie-form">
-    <div>
-      <input name="scrunchie-title" type="text" value="{{title}}" />
-    </div>
-    <button type="submit" class="btn btn-success">Save Scrunchie</button>
-    <button type="button" class="btn btn-danger">Delete Scrunchie</button>
-  </form>
-</article>
-{{/if}}
+<a href="/collection/{{scrunchie.collection_id}}"> &larr; Back to Collection</a>
+<div class="mt-4">
+{{> scrunchie-info scrunchie}}
+</div>
+<a href="/dashboard/edit/scrunchie/{{scrunchie.id}}" class="edit-link">Edit scrunchie</a>
+ <div class="scrunchies mt-3">
+    <section class="scrunchie">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">inventory</th>
+            <th scope="col">price</th>
+            <th scope="col">cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{scrunchie.inventory}}</td>
+            <td>${{scrunchie.price}}</td>
+            <td>${{scrunchie.cogs}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
 
-{{#if loggedIn}}
+</article>
+
+
+
 <script src="/javascript/scrunchie.js"></script>
 {{/if}}
