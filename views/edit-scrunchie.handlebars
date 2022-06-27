@@ -1,6 +1,6 @@
 {{#if loggedIn}}
 <article>
-  <a href="/collection/{{scrunchie.id}}"> &larr; Back to Scrunchie</a>
+  <a href="/collection/{{scrunchie.collection_id}}"> &larr; Back to Scrunchie</a>
 <div class="mt-4">
   <h2>
     Edit Scrunchie
@@ -22,6 +22,10 @@
     <div class="col">
       <label class="form-label">Scrunchie Cost</label>
       <input type="number" class="form-control" id="scrunchie-cost" value="{{scrunchie.cogs}}">
+    </div>
+    <div class="col">
+      <label class="form-label">Scrunchie Collection</label>
+      <input type="number" class="form-control" id="scrunchie-collection" value="{{scrunchie.collection_id}}">
     </div>
     <div class="col-12">
     <button type="submit" class="btn btn-success">Save Scrunchie</button>
