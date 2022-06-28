@@ -1,16 +1,17 @@
+{{#if loggedIn}}
 <div class="scrunchies">
   <section class="scrunchie">
     <table class="table">
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">title</th>
+          <th scope="col">Title</th>
         </tr>
       </thead>
       <tbody>
         {{#each collectionTitles}}
         <tr>
-          <th scope="row">{{id}}</th>
+          <td scope="row">{{id}}</td>
           <td><a href="/collection/{{id}}">{{title}}</a></td>
         </tr>
         {{/each}}
@@ -18,3 +19,4 @@
     </table>
   </section>
 </div>
+{{/if}}

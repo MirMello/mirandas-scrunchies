@@ -15,7 +15,9 @@ router.get('/', withAuth, (req, res) => {
         if(scrunchieTitles.indexOf(ScrunchieData[i].title) === -1) {
           scrunchieTitles.push({
             title: ScrunchieData[i].title,
-            id: ScrunchieData[i].id
+            id: ScrunchieData[i].id,
+            inventory: ScrunchieData[i].inventory,
+            cogs: ScrunchieData[i].cogs
           })
         }
       }
@@ -30,8 +32,9 @@ router.get('/', withAuth, (req, res) => {
 router.post('/', withAuth, (req, res) => {
   // expects => {comment_text: "This is the comment", user_id: 1, post_id: 2}
   Scrunchie.create({
-    title: req.body.scrunchie_title,
-    inventory: req.body.scrunchie_inventory,
+    title: req.body.title,
+    inventory: req.body.inventory,
+    price: req.body.price,
     collection_id: req.body.collection_id,
     cogs: req.body.cogs
   })
@@ -41,7 +44,33 @@ router.post('/', withAuth, (req, res) => {
       res.status(400).json(err);
     });
 });
-
+router.put('/:id', withAuth, (req, res) => {
+  Scrunchie.update(
+    {
+      title: req.body.title,
+      inventory: req.body.inventory,
+      collection_id: req.body.collection_id,
+      price: req.body.price,
+      cogs: req.body.cogs
+    },
+    {
+      where: {
+        id: req.params.id
+      }
+    }
+  )
+    .then(ScrunchieData => {
+      if (!ScrunchieData) {
+        res.status(404).json({ message: 'No scrunchie found with this id' });
+        return;
+      }
+      res.json(ScrunchieData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 router.delete('/:id', withAuth, (req, res) => {
   Scrunchie.destroy({
     where: {

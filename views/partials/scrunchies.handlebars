@@ -14,12 +14,10 @@
         {{#each this}}
         <tr>
           <th scope="row">{{id}}</th>
-          <td>{{title}}</td>
+          <td><a href="/scrunchie/{{id}}">{{title}}</a></td>
           <td>{{inventory}}</td>
-          <td>{{price}}</td>
-          <td>{{cogs}}</td>
-          <td><button type="button" class="btn btn-secondary">Edit</button></td>
-          <td><button type="button" class="btn btn-danger">Delete</button></td>
+          <td>${{price}}</td>
+          <td>${{cogs}}</td>
         </tr>
         {{/each}}
       </tbody>

@@ -12,6 +12,11 @@ An app that helps organize Miranda's Scrunchie catalog
 * MVC
 * Handlebars
 * Express.js
+* boostrap
+* sequelize
+* bcrypt
+* mysql2
+
 
 ## Installation Instructions
 1.) run: git pull origin develop in terminal
@@ -23,8 +28,11 @@ An app that helps organize Miranda's Scrunchie catalog
 7.)run: node seeds/index.js
 8.)run: npm start
 
+## Future:
+- make log for database
+- sales tracker
+
 ## Contribution
 Jon Bird,
-Miranda Mello,
-Cody Eddie, and
-Jace Edwards
+Miranda Mello, and
+Cody Eddie
